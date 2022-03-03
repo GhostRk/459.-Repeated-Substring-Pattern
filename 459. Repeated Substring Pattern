@@ -1,0 +1,36 @@
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+        // first i have selected the substring i.e first char of s then upto 2nd substring starting index 0 then 3rd and so on....
+//  after each selection of substring append the substring using loop repeatedly (starting from j=0 to (lengthOf"s")/lengthOfSubString and then match with "s" return true false accordingly 
+        
+        
+        int i=0;
+        
+        int n=s.length();
+        
+        while(i<n/2)
+        {
+            String check=s.substring(0,i+1);
+             StringBuffer ans=new StringBuffer();
+            String res=new  String();
+            if(n%(i+1)==0)
+            {
+                int j=0;
+                while(j<n/(i+1))
+                {
+                    ans.append(check);
+                    j++;
+                }
+            }
+            res=ans.toString();
+            // System.out.println(ans);
+            if(res.equals(s))
+                return true;
+            
+            i++;
+        }
+        
+        return false;
+       
+    }
+}
